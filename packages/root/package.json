@@ -1,12 +1,7 @@
 {
-  "name": "@exm/root",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "name": "@exm/root-config",
   "scripts": {
-    "start": "yarn kill-ports && lerna run start",
-    "kill-ports": "kill-port --port 9000,9001,9002",
+    "start": "webpack serve --port 9000 --env isLocal",
     "lint": "eslint src --ext js,ts,tsx",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write .",
@@ -31,8 +26,6 @@
     "husky": "^6.0.0",
     "jest": "^27.0.5",
     "jest-cli": "^27.0.5",
-    "kill-port": "^1.6.1",
-    "lerna": "^4.0.0",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
     "serve": "^12.0.0",
