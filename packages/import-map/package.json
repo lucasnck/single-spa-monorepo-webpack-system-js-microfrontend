@@ -1,0 +1,19 @@
+{
+  "name": "@exm/import-map",
+  "scripts": {
+    "start": "webpack serve --port 9003 --env isLocal",
+    "build": "webpack --mode=production"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.3.2",
+    "serve": "^12.0.0",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-config-single-spa-ts": "^3.0.0",
+    "webpack-dev-server": "^4.0.0-rc.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {}
+}

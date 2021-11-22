@@ -2,11 +2,12 @@
   "name": "@exm/root",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/pages/*"
   ],
   "scripts": {
     "start": "yarn kill-ports && lerna run start",
-    "kill-ports": "kill-port --port 9000,9001,9002",
+    "kill-ports": "kill-port --port 9000,9001,9002,9003,9004,9005",
     "lint": "eslint src --ext js,ts,tsx",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write .",
