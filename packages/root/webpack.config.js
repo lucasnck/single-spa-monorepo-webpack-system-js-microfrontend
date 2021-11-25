@@ -19,5 +19,8 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
+    externals: {
+      "@exm/routes": '@exm/routes'
+    },
   });
 };

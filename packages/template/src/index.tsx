@@ -7,7 +7,9 @@ export const bootstrap = [
   menuCycles.bootstrap,
   footerCycles.bootstrap,
 ];
+
 export const mount = [headerCycles.mount, menuCycles.mount, footerCycles.mount];
+
 export const unmount = [
   headerCycles.unmount,
   menuCycles.unmount,

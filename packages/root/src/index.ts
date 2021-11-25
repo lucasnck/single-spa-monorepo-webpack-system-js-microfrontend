@@ -4,17 +4,27 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
-import microfrontendLayout from "./microfrontend-layout.html";
+// @ts-ignore
+import { routes } from "@exm/routes";
 
-const routes = constructRoutes(microfrontendLayout);
+const routesConfig = constructRoutes(routes);
+
+const mappedRoutes = constructRoutes(routesConfig);
+
 const applications = constructApplications({
-  routes,
+  routes: mappedRoutes,
   loadApp({ name }) {
     return System.import(name);
   },
 });
-const layoutEngine = constructLayoutEngine({ routes, applications });
 
-applications.forEach(registerApplication);
-layoutEngine.activate();
-start();
+const layoutEngine = constructLayoutEngine({
+  routes: mappedRoutes,
+  applications,
+});
+
+System.import("@exm/routes").then(() => {
+  applications.forEach(registerApplication);
+  layoutEngine.activate();
+  start();
+});
