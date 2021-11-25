@@ -1,10 +1,18 @@
 <single-spa-router>
+  <application name="@exm/template"></application>
   <main>
-    <route default>
-      <application name="@exm/login"></application>
-    </route>
-    <route path="/home">
-      <application name="@exm/home"></application>
-    </route>
+    <div id="header"></div>
+    <div id="wrapper">
+      <div id="menu"></div>
+      <div id="content">
+        <route default>
+          <application name="@exm/login"></application>
+        </route>
+        <route path="/home">
+          <application name="@exm/home"></application>
+        </route>
+      </div>
+      <div id="footer"></div>
+    </div>
   </main>
 </single-spa-router>
