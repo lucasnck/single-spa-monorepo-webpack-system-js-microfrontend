@@ -1,8 +1,5 @@
 {
-  "extends": "ts-config-single-spa",
-  "compilerOptions": {
-    "jsx": "react-jsx"
-  },
+  "extends": "../../configs/tsconfig.react.json",
   "include": ["src/**/*", "node_modules/@types"],
   "exclude": ["src/**/*.test*"]
 }

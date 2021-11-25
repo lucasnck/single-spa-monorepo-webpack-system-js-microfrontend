@@ -4,8 +4,8 @@ const path = require("path");
 module.exports = {
   entry: './src/exm-import-map.json',
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: '[name].json'
+    filename: '[name].json',
+    path: path.resolve(process.cwd(), "dist"),
   },
   plugins: [
     new CopyPlugin({
@@ -15,10 +15,16 @@ module.exports = {
     }),
   ],
   devServer: {
+    static: {
+      directory: path.join(__dirname, '/dist/exm-import-map.json'),
+    },
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    }
+    },
+    client: {
+      webSocketURL: {
+        hostname: "localhost",
+      },
+    },
   }
 };

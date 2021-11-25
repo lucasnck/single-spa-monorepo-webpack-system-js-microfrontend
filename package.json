@@ -1,5 +1,5 @@
 {
-  "name": "@exm/root",
+  "name": "exm",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -9,19 +9,12 @@
     "start": "yarn kill-ports && lerna run start",
     "kill-ports": "kill-port --port 9000,9001,9002,9003,9004,9005",
     "lint": "eslint src --ext js,ts,tsx",
-    "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
-    "prepare": "husky install",
     "build": "webpack --mode=production"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/eslint-parser": "^7.14.7",
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/preset-typescript": "^7.14.5",
-    "@babel/runtime": "^7.14.6",
+    "@exm/configs": "1.0.0",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.29.0",
