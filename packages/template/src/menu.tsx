@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 
-function Header(props) {
-  return <section>Header is mounted!</section>;
+function Menu(props) {
+  return <section>Menu is mounted!</section>;
 }
 
-export const headerCycles = singleSpaReact({
+export const menuCycles = singleSpaReact({
   React,
   ReactDOM,
-  rootComponent: Header,
+  rootComponent: Menu,
   // @ts-ignore
-  domElementGetter: (props) => document.querySelector("#header"),
+  domElementGetter: (props) => document.querySelector("#menu"),
   errorBoundary(err, info, props) {
     // Customize the root error boundary for your microfrontend here.
     return null;
