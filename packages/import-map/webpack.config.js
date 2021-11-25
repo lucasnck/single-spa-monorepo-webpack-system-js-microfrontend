@@ -1,21 +1,24 @@
-const { merge } = require("webpack-merge");
-const singleSpaDefaults = require("webpack-config-single-spa-ts");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const path = require("path");
 
-module.exports = (webpackConfigEnv, argv) => {
-  const orgName = "exm";
-  const defaultConfig = singleSpaDefaults({
-    orgName,
-    projectName: "import-map",
-    webpackConfigEnv,
-    argv,
-    disableHtmlGeneration: true,
-  });
-
-  return merge(defaultConfig, {
-    // modify the webpack config however you'd like to by adding to this object
-    plugins: [
-      new HtmlWebpackPlugin(),
-    ],
-  });
+module.exports = {
+  entry: './src/exm-import-map.json',
+  output: {
+    path: path.resolve(__dirname, 'public'),
+    filename: '[name].json'
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/exm-import-map.json", to: "dist" },
+      ],
+    }),
+  ],
+  devServer: {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    }
+  }
 };

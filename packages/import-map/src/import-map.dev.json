@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "@exm/root-config": "//localhost:9000/exm-root-config.js",
-    "@exm/login": "//localhost:9001/exm-login.js",
-    "@exm/home": "//localhost:9002/exm-home.js"
-  }
-}
