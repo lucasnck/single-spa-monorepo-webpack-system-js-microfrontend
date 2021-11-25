@@ -1,26 +1,21 @@
 const { merge } = require("webpack-merge");
-const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const config = require("@exm/configs/webpack.config");
+const package = require('./package.json');
+
 module.exports = (webpackConfigEnv, argv) => {
-  const orgName = "exm";
-  const defaultConfig = singleSpaDefaults({
-    orgName,
-    projectName: "root",
-    webpackConfigEnv,
-    argv,
-    disableHtmlGeneration: true,
-  });
+
+  const defaultConfig = config(package, webpackConfigEnv, argv);
 
   return merge(defaultConfig, {
-    // modify the webpack config however you'd like to by adding to this object
     plugins: [
       new HtmlWebpackPlugin({
         inject: false,
         template: "src/index.ejs",
         templateParameters: {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
-          orgName,
+          orgName: defaultConfig.orgName,
         },
       }),
     ],

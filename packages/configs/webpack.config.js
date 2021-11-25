@@ -11,14 +11,14 @@ const config = (package, webpackConfigEnv, argv) => {
     projectName: name,
     webpackConfigEnv,
     argv,
+    disableHtmlGeneration: true,
   });
 
   return merge(defaultConfig, {
     entry: path.resolve(
       process.cwd(),
-      `src/index.tsx`
+      `src/index.ts`
     ),
-    // modify the webpack config however you'd like to by adding to this object
   });
 };
 
