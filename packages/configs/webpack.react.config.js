@@ -18,7 +18,7 @@ const config = (package, webpackConfigEnv, argv) => {
       process.cwd(),
       `src/index.tsx`
     ),
-    // modify the webpack config however you'd like to by adding to this object
+    externals: ["react-router-dom", "history"]
   });
 };
 
