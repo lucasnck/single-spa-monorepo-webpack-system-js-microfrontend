@@ -1,12 +1,8 @@
 {
   "imports": {
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
-    "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
-    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
-    "@exm/root": "//localhost:9000/exm-root.js",
-    "@exm/routes": "//localhost:9005/exm-routes.js",
-    "@exm/login": "//localhost:9001/exm-login.js",
-    "@exm/home": "//localhost:9002/exm-home.js",
-    "@exm/template": "//localhost:9004/exm-template.js"
+    "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.development.min.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.development.min.js",
+    "@exm/root": "//localhost:9000/exm-root.js"
   }
 }
