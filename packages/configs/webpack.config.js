@@ -1,6 +1,7 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 
 const config = (package, webpackConfigEnv, argv) => {
 
@@ -19,6 +20,9 @@ const config = (package, webpackConfigEnv, argv) => {
       process.cwd(),
       `src/index.ts`
     ),
+    plugins: [
+      new Dotenv(),
+    ]
   });
 };
 

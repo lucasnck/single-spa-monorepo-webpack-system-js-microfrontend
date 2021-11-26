@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@exm/configs": "1.0.0",
+    "@exm/settinfs": "1.0.0",
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.16.0",
     "copy-webpack-plugin": "^10.0.0",

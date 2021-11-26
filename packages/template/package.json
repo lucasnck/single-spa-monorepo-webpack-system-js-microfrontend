@@ -9,7 +9,8 @@
     "check-format": "prettier --check ."
   },
   "devDependencies": {
-    "@exm/configs": "1.0.0"
+    "@exm/configs": "1.0.0",
+    "@exm/settings": "1.0.0"
   },
   "dependencies": {}
 }
