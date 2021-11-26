@@ -1,5 +1,6 @@
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const config = require("@exm/configs/webpack.config");
 const package = require('./package.json');
@@ -17,6 +18,11 @@ module.exports = (webpackConfigEnv, argv) => {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
           orgName: defaultConfig.orgName,
         },
+      }),
+      new CopyPlugin({
+        patterns: [
+          { from: "./src/exm-import-map.json", to: "dist" },
+        ],
       }),
     ],
     externals: {

@@ -4,14 +4,14 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
-import { routes } from "./routes";
+import { apps } from "./apps";
 
 const baseApps = {
   containerEl: "#root",
-  routes: routes,
+  routes: apps,
 };
 
-baseApps.routes = routes.map((item: any) => {
+baseApps.routes = baseApps.routes.map((item: any) => {
   let isRoute = item.type === "route";
 
   if (isRoute) {
