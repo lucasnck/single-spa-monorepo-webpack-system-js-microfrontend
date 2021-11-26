@@ -1,3 +1,5 @@
+import { env } from "../utils/env";
+
 export const routes = [
   {
     type: "route",
@@ -5,7 +7,7 @@ export const routes = [
       {
         type: "application",
         name: "@exm/login",
-        src: "//localhost:9001/exm-login.js",
+        src: `${env.LOGIN_PATH}/exm-login.js`,
       },
     ],
     default: true,
@@ -17,7 +19,7 @@ export const routes = [
       {
         type: "application",
         name: "@exm/home",
-        src: "//localhost:9002/exm-home.js",
+        src: `${env.HOME_PATH}/exm-home.js`,
       },
     ],
   },

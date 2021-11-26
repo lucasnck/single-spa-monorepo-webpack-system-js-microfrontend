@@ -1,10 +1,11 @@
 import { routes } from "./routes/routes";
+import { env } from "./utils/env";
 
 export const apps = [
   {
     type: "application",
     name: "@exm/template",
-    src: "//localhost:9004/exm-template.js",
+    src: `${env.TEMPLATE_PATH}/exm-template.js`,
   },
   ...routes,
 ];

@@ -11,7 +11,7 @@
   <meta name="importmap-type" content="systemjs-importmap" />
  
   <% if (isLocal) { %>
-    <script type="systemjs-importmap" src="http://localhost:9000/dist/exm-import-map.dev.json"></script>
+    <script type="systemjs-importmap" src="<%= process.env.ROOT_PATH %>/dist/exm-import-map.dev.json"></script>
   <% } else { %>
     <script type="systemjs-importmap" src="/dist/exm-import-map.json"></script>
   <% } %>
@@ -31,7 +31,7 @@
 <body>
   <script>
     <% if (isLocal) { %>
-      System.import("//localhost:9000/exm-root.js");
+      System.import("<%= process.env.ROOT_PATH %>/exm-root.js");
     <% } else {
       System.import("/dist/exm-root.js");
     } %>

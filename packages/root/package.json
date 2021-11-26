@@ -12,10 +12,11 @@
     "@exm/configs": "1.0.0",
     "@types/systemjs": "^6.1.0",
     "@types/webpack-env": "^1.16.0",
+    "copy-webpack-plugin": "^10.0.0",
+    "dotenv-webpack": "^7.0.3",
     "html-webpack-plugin": "^5.3.2"
   },
   "dependencies": {
-    "@exm/routes": "1.0.0",
     "single-spa": "^5.9.3",
     "single-spa-layout": "2.0.1"
   }
