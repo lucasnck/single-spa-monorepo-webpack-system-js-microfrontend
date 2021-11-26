@@ -1,0 +1,15 @@
+{
+  "name": "@exm/settings",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "webpack serve --port 9006",
+    "lint": "eslint src --ext js,ts,tsx",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "build": "webpack --mode=production"
+  },
+  "devDependencies": {
+    "@exm/configs": "1.0.0"
+  },
+  "dependencies": {}
+}

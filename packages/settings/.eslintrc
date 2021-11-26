@@ -1,0 +1,3 @@
+{
+  "extends": ["@exm/configs/.eslintrc"]
+}

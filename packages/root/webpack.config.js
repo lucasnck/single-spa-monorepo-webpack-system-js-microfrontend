@@ -27,7 +27,8 @@ module.exports = (webpackConfigEnv, argv) => {
       new Dotenv(),
     ],
     externals: {
-      "@exm/routes": '@exm/routes'
+      "@exm/routes": '@exm/routes',
+      "@exm/settings": '@exm/settings',
     },
   });
 };

@@ -5,6 +5,11 @@ import {
   constructLayoutEngine,
 } from "single-spa-layout";
 import { apps } from "./apps";
+// @ts-ignore
+import config from "@exm/settings";
+import { env } from "./utils/env";
+
+document.title = config.title;
 
 const baseApps = {
   containerEl: "#root",
@@ -43,7 +48,7 @@ const layoutEngine = constructLayoutEngine({
 });
 
 (async () => {
-  await System.import("@exm/template");
+  await System.import(`${env.SETTINGS_PATH}/exm-settings.js`);
   applications.forEach(registerApplication);
   layoutEngine.activate();
   start();

@@ -34,7 +34,8 @@
     "webpack-config-single-spa-react-ts": "^3.0.0",
     "webpack-config-single-spa-ts": "^3.0.0",
     "webpack-dev-server": "^4.0.0-rc.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "dotenv-webpack": "^7.0.3"
   },
   "dependencies": {
     "history": "5",
