@@ -11,8 +11,11 @@
   <meta name="importmap-type" content="systemjs-importmap" />
  
   <% if (isLocal) { %>
-  <script type="systemjs-importmap" src="http://localhost:9000/dist/exm-import-map.json"></script>
+    <script type="systemjs-importmap" src="http://localhost:9000/dist/exm-import-map.dev.json"></script>
+  <% } else { %>
+    <script type="systemjs-importmap" src="/dist/exm-import-map.json"></script>
   <% } %>
+
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
@@ -27,7 +30,11 @@
 </head>
 <body>
   <script>
-    System.import('@exm/root');
+    <% if (isLocal) { %>
+      System.import("//localhost:9000/exm-root.js");
+    <% } else {
+      System.import("/dist/exm-root.js");
+    } %>
   </script>
 
   <div>

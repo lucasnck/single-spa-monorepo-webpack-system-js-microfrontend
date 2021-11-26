@@ -2,7 +2,6 @@
   "imports": {
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
     "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.development.min.js",
-    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.development.min.js",
-    "@exm/root": "//localhost:9000/exm-root.js"
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.development.min.js"
   }
 }

@@ -21,7 +21,7 @@ module.exports = (webpackConfigEnv, argv) => {
       }),
       new CopyPlugin({
         patterns: [
-          { from: "./src/exm-import-map.json", to: "dist" },
+          { from: "./src/import-map", to: "dist" },
         ],
       }),
     ],
