@@ -1,5 +1,6 @@
 {
   "name": "@exm/login",
+  "version": "1.0.0",
   "scripts": {
     "start": "webpack serve --port 9001",
     "build": "webpack --mode=production",
