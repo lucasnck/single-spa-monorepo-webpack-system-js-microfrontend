@@ -1,5 +1,4 @@
 import { env } from "../utils/env";
-
 export const routes = [
   {
     type: "route",

@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@exm/configs": "1.0.0",
-    "@exm/builder": "1.0.0",
     "kill-port": "^1.6.1",
     "lerna": "^4.0.0"
   },

@@ -4,6 +4,8 @@ import * as inquirer from "inquirer";
 import chalk from "chalk";
 import * as ejs from "ejs";
 import * as yargs from "yargs";
+import * as shell from "shelljs";
+import { modifyRoutes } from "./utils/modify-routes";
 
 export interface CliOptions {
   projectName: string;
@@ -55,13 +57,19 @@ export function render(content: string, data: TemplateData) {
 function postProcess(options: CliOptions) {
   const isNode = fs.existsSync(path.join(options.templatePath, "package.json"));
   if (isNode) {
-    // shell.cd(options.tartgetPath);
-    // const result = shell.exec("yarn install");
-    // if (result.code !== 0) {
-    //   return false;
-    // }
   }
 
+  const rootDir = path.relative(CURR_DIR, "../root");
+
+  console.log("rootdir", rootDir);
+  shell.cd(rootDir);
+  const result = shell.exec("yarn format");
+  
+  if (result.code !== 0) {
+    return false;
+  }
+
+  console.log("root format complete");
   return true;
 }
 
@@ -118,6 +126,10 @@ function createProject(projectPath: string) {
   return true;
 }
 
+async function finishJob(options: CliOptions) {
+  await modifyRoutes(options, postProcess);
+}
+
 inquirer.prompt(QUESTIONS).then((answers) => {
   answers = Object.assign({}, answers, yargs.argv);
   const projectChoice = answers["template"];
@@ -145,7 +157,7 @@ inquirer.prompt(QUESTIONS).then((answers) => {
     return;
   }
 
-  createDirectoryContents(templatePath, projectName, projectName, projectPort);
+  // createDirectoryContents(templatePath, projectName, projectName, projectPort);
 
-  postProcess(options);
+  finishJob(options);
 });
