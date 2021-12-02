@@ -9,7 +9,7 @@
   "scripts": {
     "start": "yarn kill-ports && lerna run start",
     "module": "lerna exec --scope @exm/builder -- yarn cli --stream",
-    "kill-ports": "kill-port --port 9000,9001,9002,9003,9004,9005,9006",
+    "kill-ports": "kill-port --port 9000,9001,9002,9003,9004,9005,9006,7877 #/DNC BUILDER_PORTS",
     "lint": "eslint src --ext js,ts,tsx",
     "format": "prettier --write .",
     "check-format": "prettier --check .",

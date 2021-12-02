@@ -6,9 +6,9 @@ import { cases } from "./case-styles";
 
 const CURR_DIR = process.cwd();
 
-const pagesDir = path.relative(CURR_DIR, "../root/src/routes/routes.ts");
+const pagesDir = path.relative(CURR_DIR, "../root/src/utils/env.ts");
 
-export async function modifyRoutes(
+export async function modifyRootEnv(
   options: CliOptions,
   next: (options: CliOptions) => Promise<void>
 ) {
@@ -23,22 +23,11 @@ export async function modifyRoutes(
 
   const { projectName } = options;
 
+  const name = cases.snack(projectName);
+
   for await (const line of rl) {
-    if (line.match("#/DNC BUILDER_ROUTES")) {
-      text +=
-        `{
-        type: "route",
-        path: "/${projectName}",
-        routes: [
-          {
-            type: "application",
-            name: "@exm/${projectName}",
-            src: \`\${env.${cases.snack(
-              projectName
-            )}_PATH}/exm-${projectName}.js\`,
-          },
-        ],
-      },` + "\r\n";
+    if (line.match("#/DNC BUILDER_ROOT_ENV")) {
+      text += `${name}_PATH: process.env.${name}_PATH,` + "\r\n";
     }
 
     text += line + "\r\n";
@@ -48,11 +37,11 @@ export async function modifyRoutes(
     if (err) throw err;
     console.log(
       "\x1b[32m",
-      `MODIFY_ROUTES`,
+      `MODIFY_ROOT_ENV`,
       "\x1b[0m",
       `- ADD `,
       "\x1b[32m",
-      `path /${projectName}`,
+      `env process.env.${name}_PATH`,
       "\x1b[0m",
       `COMPLETED`
     );

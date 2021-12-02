@@ -1,10 +1,11 @@
 {
   "name": "@exm/root",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
     "lint": "eslint src --ext js,ts,tsx",
-    "format": "prettier --write .",
+    "format": "prettier --write . --loglevel warn",
     "check-format": "prettier --check .",
     "build": "webpack --mode=production"
   },

@@ -2,13 +2,12 @@ import * as path from "path";
 import * as fs from "fs";
 import * as readline from "readline";
 import { CliOptions } from "../types";
-import { cases } from "./case-styles";
 
 const CURR_DIR = process.cwd();
 
-const pagesDir = path.relative(CURR_DIR, "../root/src/routes/routes.ts");
+const pagesDir = path.relative(CURR_DIR, "../../package.json");
 
-export async function modifyRoutes(
+export async function modifyPorts(
   options: CliOptions,
   next: (options: CliOptions) => Promise<void>
 ) {
@@ -21,38 +20,38 @@ export async function modifyRoutes(
 
   let text = "";
 
-  const { projectName } = options;
+  const { projectPort } = options;
 
   for await (const line of rl) {
-    if (line.match("#/DNC BUILDER_ROUTES")) {
-      text +=
-        `{
-        type: "route",
-        path: "/${projectName}",
-        routes: [
-          {
-            type: "application",
-            name: "@exm/${projectName}",
-            src: \`\${env.${cases.snack(
-              projectName
-            )}_PATH}/exm-${projectName}.js\`,
-          },
-        ],
-      },` + "\r\n";
-    }
+    if (line.match("#/DNC BUILDER_PORTS")) {
+      // split all spaces
+      let words = line.split(" ");
 
-    text += line + "\r\n";
+      // get ports index
+      const ports = words[7].split(",");
+      ports.push(projectPort.toString());
+
+      // join ports with ,
+      const joinPorts = ports.join(",");
+      words[7] = joinPorts;
+
+      // add again to file
+      const modifiedLine = words.join(" ");
+      text += modifiedLine + "\r\n";
+    } else {
+      text += line + "\r\n";
+    }
   }
 
   fs.writeFile(pagesDir, text, "utf-8", function (err) {
     if (err) throw err;
     console.log(
       "\x1b[32m",
-      `MODIFY_ROUTES`,
+      `MODIFY_PORTS`,
       "\x1b[0m",
       `- ADD `,
       "\x1b[32m",
-      `path /${projectName}`,
+      `port ${projectPort}`,
       "\x1b[0m",
       `COMPLETED`
     );

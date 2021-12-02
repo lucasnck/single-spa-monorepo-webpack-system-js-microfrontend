@@ -8,4 +8,5 @@ export const apps = [
     src: `${env.TEMPLATE_PATH}/exm-template.js`,
   },
   ...routes,
+  // #/DNC BUILDER_APPS
 ];

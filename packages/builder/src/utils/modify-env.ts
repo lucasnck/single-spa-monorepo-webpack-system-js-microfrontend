@@ -6,9 +6,9 @@ import { cases } from "./case-styles";
 
 const CURR_DIR = process.cwd();
 
-const pagesDir = path.relative(CURR_DIR, "../root/src/routes/routes.ts");
+const pagesDir = path.relative(CURR_DIR, "../root/.env");
 
-export async function modifyRoutes(
+export async function modifyEnv(
   options: CliOptions,
   next: (options: CliOptions) => Promise<void>
 ) {
@@ -21,24 +21,18 @@ export async function modifyRoutes(
 
   let text = "";
 
-  const { projectName } = options;
+  const { projectName, projectPort } = options;
+
+  const snackName = cases.snack(projectName);
+  const kebabName = cases.kebab(projectName);
 
   for await (const line of rl) {
-    if (line.match("#/DNC BUILDER_ROUTES")) {
-      text +=
-        `{
-        type: "route",
-        path: "/${projectName}",
-        routes: [
-          {
-            type: "application",
-            name: "@exm/${projectName}",
-            src: \`\${env.${cases.snack(
-              projectName
-            )}_PATH}/exm-${projectName}.js\`,
-          },
-        ],
-      },` + "\r\n";
+    if (line.match("#/DNC BUILDER_ENV_DEV")) {
+      text += `${snackName}_PATH=//localhost:${projectPort}` + "\r\n";
+    }
+
+    if (line.match("#/DNC BUILDER_ENV_UAT")) {
+      text += `# ${snackName}_PATH=${kebabName}` + "\r\n";
     }
 
     text += line + "\r\n";
@@ -48,11 +42,11 @@ export async function modifyRoutes(
     if (err) throw err;
     console.log(
       "\x1b[32m",
-      `MODIFY_ROUTES`,
+      `MODIFY_ENV_DEV`,
       "\x1b[0m",
       `- ADD `,
       "\x1b[32m",
-      `path /${projectName}`,
+      `${cases.snack(projectName)}_PATH=//localhost:${projectPort}`,
       "\x1b[0m",
       `COMPLETED`
     );
