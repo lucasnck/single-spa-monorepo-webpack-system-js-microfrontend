@@ -1,0 +1,27 @@
+{
+  "name": "@exm/builder",
+  "private": true,
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "cli": "ts-node src/index.ts",
+    "build": "tsc && shx rm -rf dist/templates && shx cp -r templates dist",
+    "link": "npm link"
+  },
+  "bin": {
+    "builder": "./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.0",
+    "@types/inquirer": "^8.1.3",
+    "@types/node": "^16.11.11",
+    "@types/yargs": "^17.0.7",
+    "shx": "^0.3.3",
+    "ts-node": "^10.4.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "inquirer": "^8.2.0",
+    "yargs": "^17.3.0"
+  }
+}

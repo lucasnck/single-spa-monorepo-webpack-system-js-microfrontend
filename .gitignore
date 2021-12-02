@@ -68,6 +68,6 @@ dist
 *.sw?
 .DS_Store
 /.history
-/node_modules
+node_modules
 /.husky
 /lerna-debug.log
