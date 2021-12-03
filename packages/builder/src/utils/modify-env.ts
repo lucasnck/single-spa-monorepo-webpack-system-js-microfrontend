@@ -40,16 +40,7 @@ export async function modifyEnv(
 
   fs.writeFile(pagesDir, text, "utf-8", function (err) {
     if (err) throw err;
-    console.log(
-      "\x1b[32m",
-      `MODIFY_ENV_DEV`,
-      "\x1b[0m",
-      `- ADD `,
-      "\x1b[32m",
-      `${cases.snack(projectName)}_PATH=//localhost:${projectPort}`,
-      "\x1b[0m",
-      `COMPLETED`
-    );
+    console.log("\x1b[32m", `MODIFY_ENV_DEV`, "\x1b[0m", `COMPLETED`);
     next(options);
   });
 }

@@ -49,10 +49,6 @@ export async function modifyPorts(
       "\x1b[32m",
       `MODIFY_PORTS`,
       "\x1b[0m",
-      `- ADD `,
-      "\x1b[32m",
-      `port ${projectPort}`,
-      "\x1b[0m",
       `COMPLETED`
     );
     next(options);

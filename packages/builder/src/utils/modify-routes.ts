@@ -50,10 +50,6 @@ export async function modifyRoutes(
       "\x1b[32m",
       `MODIFY_ROUTES`,
       "\x1b[0m",
-      `- ADD `,
-      "\x1b[32m",
-      `path /${projectName}`,
-      "\x1b[0m",
       `COMPLETED`
     );
     next(options);

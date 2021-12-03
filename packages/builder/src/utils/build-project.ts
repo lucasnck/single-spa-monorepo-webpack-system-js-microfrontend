@@ -4,7 +4,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { TemplateData } from "src/types";
 
-const SKIP_FILES = ["node_modules", ".template.json"];
+const SKIP_FILES = ["node_modules", "page.builder.ts"];
 
 const CURR_DIR = process.cwd();
 
@@ -20,6 +20,7 @@ export function createDirectoryContents(
   projectName: string,
   projectPort: number
 ) {
+
   // read all files/folders (1 level) from template folder
   const filesToCreate = fs.readdirSync(templatePath);
   // loop each file/folder

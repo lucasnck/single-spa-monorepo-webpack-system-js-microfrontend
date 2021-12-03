@@ -39,10 +39,6 @@ export async function modifyRootEnv(
       "\x1b[32m",
       `MODIFY_ROOT_ENV`,
       "\x1b[0m",
-      `- ADD `,
-      "\x1b[32m",
-      `env process.env.${name}_PATH`,
-      "\x1b[0m",
       `COMPLETED`
     );
     next(options);
