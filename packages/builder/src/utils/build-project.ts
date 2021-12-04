@@ -2,24 +2,18 @@ import chalk from "chalk";
 import * as ejs from "ejs";
 import * as fs from "fs";
 import * as path from "path";
-import { TemplateData } from "src/types";
+import { IInputOptions } from "src/types";
 
-const SKIP_FILES = ["node_modules", "page.builder.ts"];
+const SKIP_FILES = ["node_modules", "page.builder.ts", "settings.builder.ts"];
 
-const CURR_DIR = process.cwd();
-
-const pagesDir = path.relative(CURR_DIR, "../pages");
-
-export function render(content: string, data: TemplateData) {
+export function render(content: string, data: IInputOptions) {
   return ejs.render(content, data);
 }
 
-export function createDirectoryContents(
-  templatePath: string,
-  projectPath: string,
-  projectName: string,
-  projectPort: number
-) {
+export function createDirectoryContents(options: IInputOptions) {
+  const { templatePath, targetPath, targetName } = options;
+
+  const target = path.join(targetPath, targetName);
 
   // read all files/folders (1 level) from template folder
   const filesToCreate = fs.readdirSync(templatePath);
@@ -33,33 +27,38 @@ export function createDirectoryContents(
     if (stats.isFile()) {
       // read file content and transform it using template engine
       let contents = fs.readFileSync(origFilePath, "utf8");
-      contents = render(contents, { projectName, projectPort });
+      contents = render(contents, options);
       // write file to destination folder
-      const writePath = path.join(pagesDir, projectPath, file);
+      const writePath = path.join(target, file);
       fs.writeFileSync(writePath, contents, "utf8");
       // read file content and transform it using template engine
     } else if (stats.isDirectory()) {
       // create folder in destination folder
-      fs.mkdirSync(path.join(pagesDir, projectPath, file));
+      fs.mkdirSync(path.join(target, file));
       // copy files/folder inside current folder recursively
-      createDirectoryContents(
-        path.join(templatePath, file),
-        path.join(projectPath, file),
-        projectName,
-        projectPort
-      );
+
+      createDirectoryContents({
+        ...options,
+        templatePath: path.join(templatePath, file),
+        targetPath: target,
+        targetName: file,
+      });
     }
   });
 }
 
-export function createProject(projectPath: string) {
-  if (fs.existsSync(projectPath)) {
+export function createProject(options: IInputOptions) {
+  const { targetPath, targetName } = options;
+
+  const target = path.join(targetPath, targetName);
+
+  if (fs.existsSync(target)) {
     console.log(
-      chalk.red(`Folder ${projectPath} exists. Delete or use another name.`)
+      chalk.red(`Folder ${target} exists. Delete or use another name.`)
     );
     return false;
   }
-  fs.mkdirSync(projectPath);
+  fs.mkdirSync(target);
 
   return true;
 }

@@ -5,31 +5,29 @@ import {
   createDirectoryContents,
   createProject,
 } from "../../utils/build-project";
-import { CliOptions, IOptions } from "../../types";
+import { IPageOptions, IOptions } from "../../types";
 
 const CURR_DIR = process.cwd();
-const pagesDir = path.relative(CURR_DIR, "../pages");
+const targetPath = path.relative(CURR_DIR, "../pages");
 
 export function pageBuilder(projectChoice: string, answers: any) {
   const projectName = cases.kebab(answers["name"] as string);
   const projectPort = answers["port"] as number;
   const templatePath = path.join(CURR_DIR, "src/templates", projectChoice);
 
-  const tartgetPath = path.join(pagesDir, projectName);
-
-  const options: CliOptions = {
+  const options: IPageOptions = {
+    templatePath: templatePath,
+    targetName: projectName,
+    targetPath,
     projectName,
     projectPort,
-    templateName: projectChoice,
-    templatePath: templatePath,
-    tartgetPath,
   };
 
-  if (!createProject(tartgetPath)) {
+  if (!createProject(options)) {
     return;
   }
 
-  createDirectoryContents(templatePath, projectName, projectName, projectPort);
+  createDirectoryContents(options);
 
   modifyCore(options);
 }

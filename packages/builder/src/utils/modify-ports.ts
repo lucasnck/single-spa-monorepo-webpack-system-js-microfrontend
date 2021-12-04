@@ -1,15 +1,15 @@
 import * as path from "path";
 import * as fs from "fs";
 import * as readline from "readline";
-import { CliOptions } from "../types";
+import { IPageOptions } from "../types";
 
 const CURR_DIR = process.cwd();
 
 const pagesDir = path.relative(CURR_DIR, "../../package.json");
 
 export async function modifyPorts(
-  options: CliOptions,
-  next: (options: CliOptions) => Promise<void>
+  options: IPageOptions,
+  next: (options: IPageOptions) => Promise<void>
 ) {
   const fileStream = fs.createReadStream(pagesDir);
 

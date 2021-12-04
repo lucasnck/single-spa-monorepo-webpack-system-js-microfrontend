@@ -13,7 +13,9 @@
     "lint": "eslint src --ext js,ts,tsx",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "packages-gh": "lerna ls --graph --all",
+    "packages": "lerna la"
   },
   "devDependencies": {
     "@exm/configs": "1.0.0",

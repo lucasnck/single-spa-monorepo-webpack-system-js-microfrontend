@@ -5,15 +5,18 @@ export interface IOptions {
   choices?: string[];
 }
 
-export interface CliOptions {
-  projectName: string;
-  projectPort: number;
-  templateName: string;
+export interface IInputOptions {
   templatePath: string;
-  tartgetPath: string;
+  targetPath: string;
+  targetName: string;
 }
 
-export interface TemplateData {
+export interface IPageOptions extends IInputOptions {
   projectName: string;
   projectPort: number;
+}
+
+export interface ISettingsOptions extends IInputOptions {
+  title: string;
+  domain: string;
 }
