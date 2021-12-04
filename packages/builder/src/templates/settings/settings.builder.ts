@@ -28,8 +28,9 @@ export function settingsBuilder(projectChoice: string, answers: any) {
   }
 
   createDirectoryContents(options);
+  console.log("\x1b[32m", `COPY_FILES`, "\x1b[0m", `COMPLETED`);
 
-  // modifyCore(options);
+  console.log("\x1b[32m", `ALL BUILDERS COMPLETED`, "\x1b[0m");
 }
 
 export const SETTINGS_QUESTIONS: IOptions[] = [

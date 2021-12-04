@@ -60,5 +60,6 @@ export function createProject(options: IInputOptions) {
   }
   fs.mkdirSync(target);
 
+  console.log("\x1b[32m", `CREATE_FOLDER`, "\x1b[0m", `COMPLETED`);
   return true;
 }

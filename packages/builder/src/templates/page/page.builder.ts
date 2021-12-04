@@ -28,6 +28,7 @@ export function pageBuilder(projectChoice: string, answers: any) {
   }
 
   createDirectoryContents(options);
+  console.log("\x1b[32m", `COPY_FILES`, "\x1b[0m", `COMPLETED`);
 
   modifyCore(options);
 }
