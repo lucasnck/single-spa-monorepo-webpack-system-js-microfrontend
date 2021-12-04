@@ -1,8 +1,9 @@
-import defaultConfig from "./portals/default";
+import DEF from "./portals/DEF";
+import { configs } from "./utils/configs";
 import { env } from "./utils/env";
 
-console.log("env portal", env.PORTAL);
+const selectedConfig = configs[env.PORTAL_IDENTIFICATION] ?? DEF;
 
-const config = defaultConfig;
+const config = { ...DEF, ...selectedConfig };
 
 export default config;

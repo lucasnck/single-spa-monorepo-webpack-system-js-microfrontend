@@ -1,4 +1,5 @@
 import * as path from "path";
+import { modifySettingsConfigs } from "../../utils/modify-settings-configs";
 import { IOptions, ISettingsOptions } from "../../types";
 import {
   createDirectoryContents,
@@ -11,7 +12,7 @@ const targetPath = path.relative(CURR_DIR, "../settings/src/portals");
 
 export function settingsBuilder(projectChoice: string, answers: any) {
   const title = answers["title"];
-  const projectName = cases.kebab(title);
+  const projectName = cases.snack(title);
   const domain = answers["domain"];
   const templatePath = path.join(CURR_DIR, "src/templates", projectChoice);
 
@@ -19,6 +20,7 @@ export function settingsBuilder(projectChoice: string, answers: any) {
     templatePath: templatePath,
     targetName: projectName,
     targetPath,
+    projectName,
     title,
     domain,
   };
@@ -30,7 +32,11 @@ export function settingsBuilder(projectChoice: string, answers: any) {
   createDirectoryContents(options);
   console.log("\x1b[32m", `COPY_FILES`, "\x1b[0m", `COMPLETED`);
 
-  console.log("\x1b[32m", `ALL BUILDERS COMPLETED`, "\x1b[0m");
+  modifySettingsConfigs(options, () => {
+    return new Promise(() => {
+      console.log("\x1b[32m", `ALL BUILDERS COMPLETED`, "\x1b[0m");
+    });
+  });
 }
 
 export const SETTINGS_QUESTIONS: IOptions[] = [

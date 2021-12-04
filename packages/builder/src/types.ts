@@ -9,10 +9,10 @@ export interface IInputOptions {
   templatePath: string;
   targetPath: string;
   targetName: string;
+  projectName: string;
 }
 
 export interface IPageOptions extends IInputOptions {
-  projectName: string;
   projectPort: number;
 }
 

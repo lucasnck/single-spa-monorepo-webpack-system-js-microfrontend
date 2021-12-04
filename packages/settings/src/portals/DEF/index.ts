@@ -1,7 +1,7 @@
 const config = {
-  id: "<%= projectName %>",
-  title: "<%= title %>",
-  domain: "<%= domain %>",
+  id: "DEF",
+  title: "DEF",
+  domain: "exm.com",
   menu: [
     {
       title: "item 1",

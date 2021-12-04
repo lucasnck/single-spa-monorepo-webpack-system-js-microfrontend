@@ -1,3 +1,3 @@
 export const env = {
-  PORTAL: process.env.PORTAL,
+  PORTAL_IDENTIFICATION: process.env.PORTAL_IDENTIFICATION,
 };
