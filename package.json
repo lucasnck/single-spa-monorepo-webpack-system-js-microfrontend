@@ -13,9 +13,19 @@
     "lint": "eslint src --ext js,ts,tsx",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
-    "build": "webpack --mode=production",
+    "build": "lerna run build",
     "packages-gh": "lerna ls --graph --all",
-    "packages": "lerna la"
+    "packages": "lerna la",
+    "build:root": "lerna run --scope=@exm/root build",
+    "build:settings": "lerna run --scope=@exm/settings build",
+    "build:template": "lerna run --scope=@exm/template build",
+    "start:core": "yarn kill-ports & lerna run --scope=@exm/root --scope=@exm/settings --scope=@exm/template --scope=@exm/login start --parallel",
+    "build:core": "lerna run --scope=@exm/root --scope=@exm/settings --scope=@exm/template --scope=@exm/login build",
+    "start:login": "yarn start:core",
+    "build:login": "lerna run --scope=@exm/login build",
+    "start:home": "yarn start:core --scope=@exm/home",
+    "build:home": "lerna run --scope=@exm/home build",
+    "#/DNC BUILDER_SCRIPTS": ""
   },
   "devDependencies": {
     "@exm/configs": "1.0.0",
