@@ -46,11 +46,15 @@ export async function modifyBasePackage(
       const modifiedLine = addPort(line, projectPort);
 
       text += modifiedLine + "\r\n";
+
+      console.log("\x1b[32m", `BUILDER_PORTS`, "\x1b[0m", `COMPLETED`);
     } else if (line.match("#/DNC BUILDER_SCRIPTS")) {
       text += `    "start:${name}": "yarn start:core --scope=@exm/${name}",
     "build:${name}": "lerna run --scope=@exm/${name} build",\r\n`;
 
       text += line + "\r\n";
+
+      console.log("\x1b[32m", `BUILDER_SCRIPTS`, "\x1b[0m", `COMPLETED`);
     } else {
       text += line + "\r\n";
     }
@@ -58,7 +62,7 @@ export async function modifyBasePackage(
 
   fs.writeFile(pagesDir, text, "utf-8", function (err) {
     if (err) throw err;
-    console.log("\x1b[32m", `MODIFY_PORTS`, "\x1b[0m", `COMPLETED`);
+    console.log("\x1b[32m", `MODIFY_BASE_PACKAGE`, "\x1b[0m", `COMPLETED`);
     next(options);
   });
 }
