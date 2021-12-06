@@ -24,7 +24,7 @@ function addPort(line: string, projectPort: number) {
   return words.join(" ");
 }
 
-export async function modifyPorts(
+export async function modifyBasePackage(
   options: IPageOptions,
   next: (options: IPageOptions) => Promise<void>
 ) {
