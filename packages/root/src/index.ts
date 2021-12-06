@@ -49,7 +49,7 @@ const layoutEngine = constructLayoutEngine({
 
 (async () => {
   await System.import(`${env.SETTINGS_PATH}/exm-settings.js`);
-  await System.import(`${env.TEMPLATE_PATH}/exm-TEMPLATE.js`);
+  await System.import(`${env.TEMPLATE_PATH}/exm-template.js`);
   applications.forEach(registerApplication);
   layoutEngine.activate();
   start();
