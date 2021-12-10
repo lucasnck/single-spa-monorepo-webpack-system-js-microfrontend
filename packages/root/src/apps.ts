@@ -1,12 +1,13 @@
 import { routes } from "./routes/routes";
+import { IApp } from "./types";
 import { env } from "./utils/env";
 
-export const apps = [
+export const apps: IApp[] = [
   {
     type: "application",
     name: "@exm/template",
     src: `${env.TEMPLATE_PATH}/exm-template.js`,
   },
-  ...routes,
   // #/DNC BUILDER_APPS
+  ...routes,
 ];

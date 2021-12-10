@@ -1,6 +1,7 @@
+import { IApp } from "../types";
 import { env } from "../utils/env";
 
-export const routes = [
+export const routes: IApp[] = [
   {
     type: "route",
     routes: [

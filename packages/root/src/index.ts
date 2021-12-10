@@ -15,11 +15,11 @@ const baseApps = {
   routes: apps,
 };
 
-baseApps.routes = baseApps.routes.map((item: any) => {
+baseApps.routes = baseApps.routes.map((item) => {
   let isRoute = item.type === "route";
 
   if (isRoute) {
-    item.routes.forEach((route: any) => {
+    item.routes?.forEach((route) => {
       // @ts-ignore
       window.importMapOverrides.addOverride(route.name, route.src);
     });
