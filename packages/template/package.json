@@ -19,7 +19,6 @@
   "dependencies": {
     "@exm/components": "*",
     "@exm/configs": "1.0.0",
-    "@exm/settings": "1.0.0",
-    "babel-plugin-module-resolver": "^4.1.0"
+    "@exm/settings": "1.0.0"
   }
 }

@@ -1,6 +1,7 @@
 {
   "extends": "../configs/tsconfig.react.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "build": true,
     "allowSyntheticDefaultImports": true,
     "composite": true,
@@ -14,6 +15,7 @@
     "target": "es2015",
     "watch": true
   },
-  "include": ["src"],
+  "references": [{ "path": "./" }],
+  "include": ["./src"],
   "exclude": ["**/node_modules/*"] // *** The files to not type check ***,
 }
