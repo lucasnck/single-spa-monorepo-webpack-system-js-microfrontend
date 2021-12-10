@@ -1,0 +1,17 @@
+{
+  "name": "@exm/components",
+  "main": "./src/index.ts",
+  "types": "./index.d.ts",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "webpack serve",
+    "lint": "eslint src --ext js,ts,tsx",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "build": "webpack --mode=production"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@exm/configs": "1.0.0"
+  }
+}

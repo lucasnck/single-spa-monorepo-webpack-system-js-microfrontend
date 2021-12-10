@@ -1,6 +1,6 @@
 {
-  "extends": "ts-config-single-spa",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react" // Support JSX in .tsx files
   }
 }

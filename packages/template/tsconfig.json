@@ -1,8 +1,6 @@
 {
   "extends": "../configs/tsconfig.react.json",
-  "compilerOptions": {
-    "lib": ["es6"]
-  },
-  "include": ["src/**/*", "node_modules/@types", "index.d.ts"],
-  "exclude": ["src/**/*.test*"]
+  "references": [{ "path": "../components/src" }],
+  "include": ["./src"],
+  "exclude": ["**/node_modules/*"] // *** The files to not type check ***,
 }

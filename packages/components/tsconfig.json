@@ -1,0 +1,19 @@
+{
+  "extends": "../configs/tsconfig.react.json",
+  "compilerOptions": {
+    "build": true,
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "declaration": true,
+    "module": "amd",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es2015",
+    "watch": true
+  },
+  "include": ["src"],
+  "exclude": ["**/node_modules/*"] // *** The files to not type check ***,
+}

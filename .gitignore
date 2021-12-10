@@ -71,3 +71,4 @@ dist
 node_modules
 /.husky
 /lerna-debug.log
+tsconfig.tsbuildinfo

@@ -1,9 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
+import { Button } from "@exm/components";
+import config from "@exm/settings";
 
-function Header(props) {
-  return <section>Header is mounted!</section>;
+function Header() {
+  return (
+    <section>
+      <Button>teste button {config.domain}</Button>
+    </section>
+  );
 }
 
 export const headerCycles = singleSpaReact({
@@ -12,8 +18,7 @@ export const headerCycles = singleSpaReact({
   rootComponent: Header,
   // @ts-ignore
   domElementGetter: (props) => document.querySelector("#header"),
-  errorBoundary(err, info, props) {
-    // Customize the root error boundary for your microfrontend here.
-    return null;
+  errorBoundary() {
+    return <h1>An error has occurred</h1>;
   },
 });

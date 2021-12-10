@@ -1,12 +1,5 @@
-import * as React from 'react';
+import * as React from "react";
 
-export interface ISignupProps {
-}
-
-export default function Signup (props: ISignupProps) {
-  return (
-    <div>
-      Register
-    </div>
-  );
+export default function Signup() {
+  return <div>Register</div>;
 }

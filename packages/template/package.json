@@ -1,5 +1,10 @@
 {
   "name": "@exm/template",
+  "version": "1.0.0",
+  "author": {
+    "email": "luucasnck@gmail.com",
+    "name": "lucasnck"
+  },
   "scripts": {
     "start": "webpack serve --port 9004",
     "build": "webpack --mode=production",
@@ -9,8 +14,12 @@
     "check-format": "prettier --check ."
   },
   "devDependencies": {
-    "@exm/configs": "1.0.0",
-    "@exm/settings": "1.0.0"
+    "ts-loader": "^9.2.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@exm/components": "*",
+    "@exm/configs": "1.0.0",
+    "@exm/settings": "1.0.0",
+    "babel-plugin-module-resolver": "^4.1.0"
+  }
 }

@@ -25,7 +25,7 @@ export async function modifySettingsConfigs(
   for await (const line of rl) {
     if (line.match("#/DNC MODIFY_SETTINGS_CONFIGS_IMPORTS")) {
       text +=
-        `import ${projectName} from "../portals/${projectName}";` + "\r\n";
+        `import { ${projectName} } from "../portals/${projectName}";` + "\r\n";
       console.log(
         "\x1b[32m",
         `MODIFY_SETTINGS_CONFIGS_IMPORTS`,

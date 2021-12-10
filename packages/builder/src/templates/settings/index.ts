@@ -1,4 +1,4 @@
-const config = {
+export const config = {
   id: "<%= projectName %>",
   title: "<%= title %>",
   domain: "<%= domain %>",
@@ -8,5 +8,3 @@ const config = {
     },
   ],
 };
-
-export default config;

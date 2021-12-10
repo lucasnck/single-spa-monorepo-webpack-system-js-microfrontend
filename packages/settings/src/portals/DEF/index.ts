@@ -1,4 +1,4 @@
-const config = {
+export const config = {
   id: "DEF",
   title: "DEF",
   domain: "exm.com",
@@ -8,5 +8,3 @@ const config = {
     },
   ],
 };
-
-export default config;

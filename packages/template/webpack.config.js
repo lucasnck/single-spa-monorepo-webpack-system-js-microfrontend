@@ -6,8 +6,6 @@ module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = config(package, webpackConfigEnv, argv);
 
   return merge(defaultConfig, {
-    externals: {
-      "@exm/settings": "@exm/settings",
-    },
+    externals: { "@exm/settings": "@exm/settings" }
   });
 };

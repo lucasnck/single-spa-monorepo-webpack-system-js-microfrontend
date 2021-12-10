@@ -5,7 +5,6 @@ import {
   constructLayoutEngine,
 } from "single-spa-layout";
 import { apps } from "./apps";
-// @ts-ignore
 import config from "@exm/settings";
 import { env } from "./utils/env";
 
@@ -20,7 +19,7 @@ baseApps.routes = baseApps.routes.map((item: any) => {
   let isRoute = item.type === "route";
 
   if (isRoute) {
-    item.routes.forEach((route) => {
+    item.routes.forEach((route: any) => {
       // @ts-ignore
       window.importMapOverrides.addOverride(route.name, route.src);
     });

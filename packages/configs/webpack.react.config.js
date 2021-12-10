@@ -18,6 +18,15 @@ const config = (package, webpackConfigEnv, argv) => {
       process.cwd(),
       `src/index.tsx`
     ),
+    module: {
+      rules: [
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          loader: "ts-loader"
+        },
+      ],
+    },
     externals: ["react-router-dom", "history"]
   });
 };

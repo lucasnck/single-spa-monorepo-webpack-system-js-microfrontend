@@ -6,9 +6,12 @@ import config from "@exm/settings";
 
 const { menu } = config;
 
-function Menu(props) {
+function Menu() {
   const renderMenu = useMemo(
-    () => menu?.map((item, index) => <div key={index}>{item.title}</div>),
+    () =>
+      menu?.map((item: any, index: number) => (
+        <div key={index}>{item.title}</div>
+      )),
     []
   );
 
@@ -21,7 +24,7 @@ export const menuCycles = singleSpaReact({
   rootComponent: Menu,
   // @ts-ignore
   domElementGetter: (props) => document.querySelector("#menu"),
-  errorBoundary(err, info, props) {
-    return null;
+  errorBoundary() {
+    return <h1>An error has occurred</h1>;
   },
 });
