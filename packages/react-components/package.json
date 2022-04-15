@@ -1,5 +1,5 @@
 {
-  "name": "@exm/components",
+  "name": "@exm/react-components",
   "main": "./src/index.ts",
   "types": "./index.d.ts",
   "version": "1.0.0",
