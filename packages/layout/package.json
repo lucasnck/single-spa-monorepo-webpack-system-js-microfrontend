@@ -1,9 +1,12 @@
 {
-  "name": "@exm/template",
+  "name": "@exm/layout",
   "version": "1.0.0",
   "author": {
     "email": "luucasnck@gmail.com",
     "name": "lucasnck"
+  },
+  "config": {
+    "port": 9004
   },
   "scripts": {
     "start": "webpack serve --port 9004",

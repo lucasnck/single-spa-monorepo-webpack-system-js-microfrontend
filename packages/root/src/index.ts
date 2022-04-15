@@ -4,33 +4,12 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
-import { apps } from "./apps";
-import config from "@exm/settings";
-import { env } from "./utils/env";
-
-document.title = config.title;
+import routes from "./routes.json";
 
 const baseApps = {
   containerEl: "#root",
-  routes: apps,
+  routes: routes,
 };
-
-baseApps.routes = baseApps.routes.map((item) => {
-  let isRoute = item.type === "route";
-
-  if (isRoute) {
-    item.routes?.forEach((route) => {
-      // @ts-ignore
-      window.importMapOverrides.addOverride(route.name, route.src);
-    });
-  } else {
-    // @ts-ignore
-    window.importMapOverrides.addOverride(item.name, item.src);
-  }
-
-  delete item.src;
-  return item;
-});
 
 const routesConfig = constructRoutes(baseApps);
 
@@ -47,8 +26,7 @@ const layoutEngine = constructLayoutEngine({
 });
 
 (async () => {
-  await System.import(`${env.SETTINGS_PATH}/exm-settings.js`);
-  await System.import(`${env.TEMPLATE_PATH}/exm-template.js`);
+  await System.import(`@exm/settings`);
   applications.forEach(registerApplication);
   layoutEngine.activate();
   start();

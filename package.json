@@ -7,25 +7,15 @@
     "packages/pages/*"
   ],
   "scripts": {
-    "start": "yarn kill-ports && lerna run start --stream --parallel",
+    "start": "lerna run start --stream --parallel",
+    "dev": "lerna exec --scope @exm/devtools -- yarn dev --stream",
     "module": "lerna exec --scope @exm/builder -- yarn cli --stream",
-    "kill-ports": "kill-port --port 9000,9001,9002,9003,9004,9005,9006,7877 #/DNC BUILDER_PORTS",
     "lint": "eslint src --ext js,ts,tsx",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "build": "lerna run build",
     "packages-gh": "lerna ls --graph --all",
-    "packages": "lerna la",
-    "build:root": "lerna run --scope=@exm/root build",
-    "build:settings": "lerna run --scope=@exm/settings build",
-    "build:template": "lerna run --scope=@exm/template build",
-    "start:core": "yarn kill-ports & lerna run --scope=@exm/root --scope=@exm/settings --scope=@exm/template --scope=@exm/login start --parallel",
-    "build:core": "lerna run --scope=@exm/root --scope=@exm/settings --scope=@exm/template --scope=@exm/login build",
-    "start:login": "yarn start:core",
-    "build:login": "lerna run --scope=@exm/login build",
-    "start:home": "yarn start:core --scope=@exm/home",
-    "build:home": "lerna run --scope=@exm/home build",
-    "#/DNC BUILDER_SCRIPTS": ""
+    "packages": "lerna la"
   },
   "devDependencies": {
     "@exm/configs": "1.0.0",

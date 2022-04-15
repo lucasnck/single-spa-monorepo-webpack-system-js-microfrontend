@@ -2,6 +2,9 @@
   "name": "@exm/root",
   "version": "1.0.0",
   "license": "MIT",
+  "config": {
+    "port": 9000
+  },
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal --open",
     "lint": "eslint src --ext js,ts,tsx",

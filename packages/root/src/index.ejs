@@ -11,9 +11,9 @@
   <meta name="importmap-type" content="systemjs-importmap" />
  
   <% if (isLocal) { %>
-    <script type="systemjs-importmap" src="<%= process.env.ROOT_PATH %>/dist/exm-import-map.dev.json"></script>
+    <script type="systemjs-importmap" src="/dist/exm-import-map.dev.json"></script>
   <% } else { %>
-    <script type="systemjs-importmap" src="<%= process.env.DOMAIN %>/dist/exm-import-map.json"></script>
+    <script type="systemjs-importmap" src="/dist/exm-import-map.json"></script>
   <% } %>
 
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
@@ -31,19 +31,17 @@
 <body>
   <script>
     <% if (isLocal) { %>
-      System.import("<%= process.env.ROOT_PATH %>/exm-root.js");
+      System.import("/exm-root.js");
     <% } else { %>
-      System.import("<%= process.env.DOMAIN %>/dist/exm-root.js");
+      System.import("/dist/exm-root.js");
     <% } %>
   </script>
 
   <div>
-    <div id="header"></div>
     <div id="wrapper">
-      <div id="menu"></div>
+      <div id="layout"></div>
       <div id="content">
         <div id="root"></div>
-        <div id="footer"></div>
       </div>
     </div>
     </div>
