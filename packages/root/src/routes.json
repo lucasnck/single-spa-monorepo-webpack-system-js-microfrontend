@@ -1,0 +1,26 @@
+[
+  {
+    "type": "application",
+    "name": "@exm/layout"
+  },
+  {
+    "type": "route",
+    "routes": [
+      {
+        "type": "application",
+        "name": "@exm/login"
+      }
+    ],
+    "default": true
+  },
+  {
+    "type": "route",
+    "path": "/home",
+    "routes": [
+      {
+        "type": "application",
+        "name": "@exm/home"
+      }
+    ]
+  }
+]

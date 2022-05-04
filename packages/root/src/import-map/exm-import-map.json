@@ -5,6 +5,8 @@
     "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
     "history": "https://unpkg.com/history@5/umd/history.production.js",
     "react-router": "https://unpkg.com/react-router@6/umd/react-router.production.js",
-    "react-router-dom": "https://unpkg.com/react-router-dom@6/umd/react-router-dom.production.js"
+    "react-router-dom": "https://unpkg.com/react-router-dom@6/umd/react-router-dom.production.js",
+    "@exm/layout": "/layout/exm-layout.js",
+    "@exm/settings": "/settings/exm-settings.js"
   }
 }
